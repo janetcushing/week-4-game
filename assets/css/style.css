@@ -1,1 +1,52 @@
 /* css stylesheet */
+
+.crystalImg {
+    height: 200px;
+    width: 200px;
+    border: 5px solid #7f8081;
+    margin-bottom: 50px;
+    opacity: 50%; 
+}
+
+.winLose,
+.crystal,
+.total {
+    font-weight: bold;
+    font-size: 24px;
+}
+#winLoseMsg{
+    color: red;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.pinkImg,
+.greenImg,
+.redImg,
+.purpleImg {
+    height: 100px;
+    width: 100px;
+}
+
+.playAgain{
+    padding: 30px;
+}
+.affix-bottom {
+    bottom: 0px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    /* line-height: 60px; Vertically center the text there */
+    background-color: #e9ecef;
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+    vertical-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
