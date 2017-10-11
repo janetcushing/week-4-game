@@ -1,7 +1,7 @@
 /* css stylesheet */
 
 
-.header {
+.heading {
     position: absolute;
     top: 0;
     width: 100%;
@@ -13,10 +13,19 @@
     color: gray;
     text-align: center;
     vertical-align: center; */
-    padding: 0px 0px 15px 0px;
+    padding: 0px 0px 15px 55px;
     margin-bottom: 20px;
 }
 
+
+.porkyImg {
+    height: 500px;
+    width: auto;
+    border: 5px solid #520808;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+    margin-left: 50px;
+}
 .crystalImg {
     height: 250px;
     width: 250px;
