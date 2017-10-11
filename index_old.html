@@ -21,7 +21,6 @@
 <body>
 
     <div class="container-fluid">
-        <!-- <div class="row header"> -->
         <div class="row">
             <div class="col-md-6">
                 <h1>Crystal Collector Game</h1>
@@ -33,68 +32,84 @@
                     </span>
                 </p>
             </div>
-            <div class="col-md-6">
-                <div id="playAgain">
-                    <div class="input-group">
-                        <div id="radioBtn" class="btn-group">
-                            <p>Do you want to play again?</p>
-                            <button id = "yes" class="btn btn-primary btn-sm active" value="true">YES</button>
-                            <button id = "no" class="btn btn-primary btn-sm notActive" value="false">NO</button>
-                        </div>
-                        <input type="hidden" name="happy" id="happy">
-                    </div>
-                </div>
-            </div>
+
+            <div class="col-md-6"></div>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="row">
-                    <div class="col-md-6" id="blue">
+                    <div class="col-md-12" id="blue">
                         <button id="blueButton" class="btn btn-outline-primary btnBlock number">
                             <img class=" img-responsive blueImg" src=assets/images/light-blue-crystals.jpg alt="Light Blue Crystals">
                         </button>
                     </div>
-                    <div class="col-md-6" id="green">
-                        <button id="greenButton" class="btn btn-outline-primary btnBlock number">
-                            <img class="img-responsive greenImg" src=assets/images/green-crystals.jpg alt="Green Crystals">
-                        </button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" id="red">
-                        <button id="redButton" class="btn btn-outline-primary btnBlock number">
-                            <img class="img-responsive redImg" src=assets/images/red-crystals.jpg alt="Red Crystals">
-                        </button>
-                    </div>
-                    <div class="col-md-6" id="purple">
-                        <button id="purpleButton" class="btn btn-outline-primary btnBlock number">
-                            <img class="img-responsive purpleImg" src=assets/images/purple-crystals.jpg alt="Purple Crystals">
-                        </button>
+                    <div class="row">
+                        <div class="col-md-12" id="red">
+                            <button id="redButton" class="btn btn-outline-primary btnBlock number">
+                                <img class="img-responsive redImg" src=assets/images/red-crystals.jpg alt="Red Crystals">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <img class="img-responsive crystalImg" height="200px" width="200px" src=assets/images/krystal.jpg alt="Crystal pic">
                 <p class="crystal">Crystal Collection Number:&nbsp
                     <span id="crystal">0</span>
                 </p>
             </div>
-            <div class="col-md-3">
-                <img class="img-responsive crystalImg" height="200px" width="200px" src=assets/images/crystally.jpeg alt="Crystal pic">
-                <p class="total">Your Crystal Collection Total:&nbsp
-                    <span id="total">0</span>
-                </p>
+            <div class="col-md-6"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2" id="green">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="greenButton" class="btn btn-outline-primary btnBlock number">
+                            <img class="img-responsive greenImg" src=assets/images/green-crystals.jpg alt="Green Crystals">
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="purple">
+                            <button id="purpleButton" class="btn btn-outline-primary btnBlock number">
+                                <img class="img-responsive purpleImg" src=assets/images/purple-crystals.jpg alt="Purple Crystals">
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-4 total">
+                <div class="row">
+                    <div class="col-md-12">
+                            <img class="img-responsive crystalImg" height="200px" width="200px" src=assets/images/crystally.jpeg alt="Crystal pic">
+                        <p>Your Crystal Collection Total:&nbsp
+                            <span id="total">0</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="playAgain">
+                        <!-- <div class="input-group">
+                            <div id="radioBtn" class="btn-group">
+                                <p>Do you want to play again?</p>
+                                <a class="btn btn-primary btn-sm active" data-toggle="happy" value="true">YES</a>
+                                <a class="btn btn-primary btn-sm notActive" data-toggle="happy" value="false">NO</a>
+                            </div>
+                            <input type="hidden" name="happy" id="happy">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
         </div>
     </div>
 
 
 
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="continer-fluid">
             <div class="row affix-bottom">
                 <div class="col-md-12">
@@ -102,7 +117,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

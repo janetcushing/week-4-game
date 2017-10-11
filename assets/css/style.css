@@ -1,18 +1,45 @@
 /* css stylesheet */
 
+
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    /* Set the fixed height of the header here */
+    /* height: 60px; */
+    /* line-height: 60px; Vertically center the text there */
+    background-color: #e9ecef;
+    /* font-size: 12px;
+    color: gray;
+    text-align: center;
+    vertical-align: center; */
+    padding: 0px 0px 15px 0px;
+    margin-bottom: 20px;
+}
+
 .crystalImg {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     border: 5px solid #7f8081;
     margin-bottom: 50px;
     opacity: 50%; 
 }
 
-.winLose,
+#blue,#red{
+    text-align:right;
+}
+#green, #purple{
+    text-align:left;
+}
+.winLose {
+    font-weight: bold;
+    font-size: 24px;
+}
+
 .crystal,
 .total {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
 }
 #winLoseMsg{
     color: red;
@@ -20,20 +47,23 @@
     font-size: 24px;
 }
 
-.pinkImg,
+.blueImg,
 .greenImg,
 .redImg,
 .purpleImg {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
 }
 
 .playAgain{
     padding: 30px;
+    color: red;
+    font-weight: bold;
 }
 .affix-bottom {
     bottom: 0px;
 }
+
 
 .footer {
     position: absolute;
