@@ -1,23 +1,13 @@
 /* css stylesheet */
 
-
 .heading {
     position: absolute;
     top: 0;
     width: 100%;
-    /* Set the fixed height of the header here */
-    /* height: 60px; */
-    /* line-height: 60px; Vertically center the text there */
     background-color: #e9ecef;
-    /* font-size: 12px;
-    color: gray;
-    text-align: center;
-    vertical-align: center; */
     padding: 0px 0px 15px 55px;
     margin-bottom: 20px;
 }
-
-
 .porkyImg {
     height: 500px;
     width: auto;
@@ -33,7 +23,6 @@
     margin-bottom: 50px;
     opacity: 50%; 
 }
-
 #blue,#red{
     text-align:right;
 }
@@ -44,7 +33,6 @@
     font-weight: bold;
     font-size: 24px;
 }
-
 .crystal,
 .total {
     font-weight: bold;
@@ -55,7 +43,6 @@
     font-weight: bold;
     font-size: 24px;
 }
-
 .blueImg,
 .greenImg,
 .redImg,
@@ -63,7 +50,6 @@
     height: 150px;
     width: 150px;
 }
-
 .playAgain{
     padding: 30px;
     color: red;
@@ -72,15 +58,11 @@
 .affix-bottom {
     bottom: 0px;
 }
-
-
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
     height: 60px;
-    /* line-height: 60px; Vertically center the text there */
     background-color: #e9ecef;
     font-size: 12px;
     color: gray;
@@ -89,3 +71,125 @@
     padding: 15px;
     margin-top: 20px;
 }
+
+
+/* 
+/* MEDIA TAGS */
+
+@media screen and (max-width: 980px) {
+.porkyImg {
+    height: 350px;
+}
+.crystalImg {
+    height: 250px;
+    width: 250px;
+    margin: 0px 0px 0px 10px;
+}
+#blue,#red{
+    text-align:left;
+    margin: 0px 0px 15px 0px;
+}
+#green, #purple{
+    text-align:left;
+    margin: 0px 0px 15px 0px;
+}
+.crystal,
+.total {
+    margin: 0px 0px 0px 20px;
+}
+.blueImg,
+.greenImg,
+.redImg,
+.purpleImg {
+    height: 115px;
+    width: 115px;
+}   
+}
+
+@media screen and (max-width: 768px) {
+.porkyImg {
+    height: 250px;
+} 
+.crystalImg {
+    height: 100px;
+    width: 100px;
+    margin: 0px 0px 0px 10px;
+}
+#blue,#red{
+    text-align: none;
+    margin: 0px 0px 0px 0px;
+}
+#green, #purple{
+    text-align: none;
+    margin: 0px 0px 0px 0px;
+}
+.winLose {
+    font-size: 14px;
+}
+.crystal,
+.total {
+    font-size: 14px;
+    margin: 0px 0px 0px 10px;
+}
+#winLoseMsg{
+    font-size: 18px;
+}
+.blueImg,
+.greenImg,
+.redImg,
+.purpleImg {
+    height: 55px;
+    width: 55px;
+}
+.affix-bottom {
+    bottom: 0px;
+}
+.footer {
+    position: relative;
+    height: 45px;
+}    
+}
+
+@media screen and (max-width: 640px) {
+    .porkyImg {
+        height: 250px;
+    } 
+    .crystalImg {
+        height: 100px;
+        width: 100px;
+        margin: 0px 0px 0px 10px;
+    }
+    #blue,#red{
+        text-align: none;
+        margin: 0px 0px 0px 0px;
+    }
+    #green, #purple{
+        text-align: none;
+        margin: 0px 0px 0px 0px;
+    }
+    .winLose {
+        font-size: 14px;
+    }
+    .crystal,
+    .total {
+        font-size: 14px;
+        margin: 0px 0px 0px 10px;
+    }
+    #winLoseMsg{
+        font-size: 18px;
+    }
+    .blueImg,
+    .greenImg,
+    .redImg,
+    .purpleImg {
+        height: 55px;
+        width: 55px;
+    }
+    .affix-bottom {
+        bottom: 0px;
+    }
+    .footer {
+        position: relative;
+        height: 45px;
+    }     
+    }
