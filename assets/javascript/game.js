@@ -34,7 +34,7 @@ function getRandomNumber(min, max) {
 }
 
 
-// initialize json crystalaNumber object and intialize the DOM
+// initialize json crystal Number object and intialize the DOM
 function initializeCrystalObject(theCrystalObject) {
     theCrystalObject.blueNumber = getRandomNumber(1, 12);
     theCrystalObject.greenNumber = getRandomNumber(1, 12);
@@ -48,31 +48,30 @@ function initializeCrystalObject(theCrystalObject) {
     $('#total').text(theCrystalObject.totalNumber);
     $('#winLoseMsg').text(theCrystalObject.winLoseMsg);
     $("#playAgain").hide();
-    console.log("theCrystalObject: " + theCrystalObject);
     return theCrystalObject;
 
 }
 
 // process the blue button click
-function processBlueButtonClick(){
+function processBlueButtonClick() {
     crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.blueNumber);
     checkForWinOrLoss();
 }
 
 // process the green button click
-function processGreenButtonClick(){
+function processGreenButtonClick() {
     crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.greenNumber);
     checkForWinOrLoss();
 }
 
 // process the red button click
-function processRedButtonClick(){
+function processRedButtonClick() {
     crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.redNumber);
     checkForWinOrLoss();
 }
 
 // process the purple button click
-function processPurpleButtonClick(){
+function processPurpleButtonClick() {
     crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.purpleNumber);
     checkForWinOrLoss();
 }
@@ -135,19 +134,19 @@ $(document).ready(function () {
 
 
     if (crystalObject.isFirstTimeThrough) {
-        // initialize numbers and hide the play Again message
+        // initialize numbers and the DOM
         crystalObject = initializeCrystalObject(crystalObject);
     }
 
 
     // clicking yes or no buttons determines if player wants to play again or not
+
     $("#yes").click(function () {
-        //re-enable the colored crystal buttons
+        // initialize numbers and buttons and the DOM
         $('#blueButton').on('click', processBlueButtonClick);
         $('#redButton').on('click', processRedButtonClick);
         $('#greenButton').on('click', processGreenButtonClick);
         $('#purpleButton').on('click', processPurpleButtonClick);
-        // initialize numbers and hides the playAgain message and buttons
         crystalObject = initializeCrystalObject(crystalObject);
     });
 
@@ -156,12 +155,12 @@ $(document).ready(function () {
         window.location = 'gameOver.html';
     });
 
-  
+
     // process the colored crystal button clicks 
     $("#blueButton").click(processBlueButtonClick);
     $("#greenButton").click(processGreenButtonClick);
     $("#redButton").click(processRedButtonClick);
     $("#purpleButton").click(processPurpleButtonClick);
-    
+
 
 });
