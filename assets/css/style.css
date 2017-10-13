@@ -25,9 +25,11 @@
 }
 #blue,#red{
     text-align:right;
+    padding: 5px;
 }
 #green, #purple{
     text-align:left;
+    padding: 5px;
 }
 .winLose {
     font-weight: bold;
@@ -38,7 +40,7 @@
     font-weight: bold;
     font-size: 20px;
 }
-#winLoseMsg{
+.winLoseMsg{
     color: red;
     font-weight: bold;
     font-size: 24px;

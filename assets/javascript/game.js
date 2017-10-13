@@ -1,4 +1,4 @@
-// javascript for game
+// javascript for week-4-game
 
 
 //------------------//
@@ -10,10 +10,7 @@ var crystalObject = {
     "redNumber": 0,
     "purpleNumber": 0,
     "crystalNumber": 0,
-    "totalNumber": 0
-};
-
-var trackGameObject = {
+    "totalNumber": 0,
     "isFirstTimeThrough": true,
     "winCntr": 0,
     "lossCntr": 0,
@@ -24,33 +21,20 @@ var trackGameObject = {
 //global variables 
 //------------------//
 
-var lossCount = 0;
-var winCount = 0;
-var storedWinCntr;
-var storedLoseCntr;
-
 
 
 //---------------------------//
 // functions
 //---------------------------//
+
+// get a random number
 function getRandomNumber(min, max) {
-    var randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+    let randomNum = Math.floor(Math.random() * (max - min + 1) + min);
     return randomNum;
 }
 
 
-// initialize json variables and intialize the DOM
-function beginGame(theTrackGameObject) {
-    theTrackGameObject.winLoseMsg = "";
-    theTrackGameObject.isFirstTimeThrough = false;
-    $('#winLoseMsg').text(theTrackGameObject.winLoseMsg);
-    $("#playAgain").hide();
-    return theTrackGameObject;
-
-}
-
-// initialize json crystalaNumber object and display to the DOM
+// initialize json crystalaNumber object and intialize the DOM
 function initializeCrystalObject(theCrystalObject) {
     theCrystalObject.blueNumber = getRandomNumber(1, 12);
     theCrystalObject.greenNumber = getRandomNumber(1, 12);
@@ -58,39 +42,39 @@ function initializeCrystalObject(theCrystalObject) {
     theCrystalObject.purpleNumber = getRandomNumber(1, 12);
     theCrystalObject.crystalNumber = getRandomNumber(19, 120);
     theCrystalObject.totalNumber = 0;
+    theCrystalObject.winLoseMsg = "";
+    theCrystalObject.isFirstTimeThrough = false;
     $('#crystal').text(theCrystalObject.crystalNumber);
     $('#total').text(theCrystalObject.totalNumber);
+    $('#winLoseMsg').text(theCrystalObject.winLoseMsg);
+    $("#playAgain").hide();
+    console.log("theCrystalObject: " + theCrystalObject);
     return theCrystalObject;
 
 }
 
-// process a loss
-function processLoss(theTrackLossObject) {
-    theTrackLossObject.winLoseMsg = "You Lose!";
-    theTrackLossObject.lossCntr++;
-    console.log("theTrackLossObject.lossCntr" + theTrackLossObject.lossCntr);
-    theTrackLossObject = processWinOrLoss(theTrackLossObject);
-    return theTrackLossObject;
+// process the blue button click
+function processBlueButtonClick(){
+    crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.blueNumber);
+    checkForWinOrLoss();
 }
 
-// process a win
-function processWin(theTrackWinObject) {
-    theTrackWinObject.winLoseMsg = "You Win!";
-    theTrackWinObject.winCntr++;
-    theTrackWinObject = processWinOrLoss(theTrackWinObject);
-    return theTrackWinObject;
+// process the green button click
+function processGreenButtonClick(){
+    crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.greenNumber);
+    checkForWinOrLoss();
 }
 
-// nested function is called from  processLoss and processWin functions
-function processWinOrLoss(theTrackWinOrLossObject) {
-    $('#winLoseMsg').html(theTrackWinOrLossObject.winLoseMsg);
-    $('#winCntr').html(theTrackWinOrLossObject.winCntr);
-    console.log("theTrackWinOrLossObject.lossCntr" + theTrackWinOrLossObject.lossCntr);
-    $('#lossCntr').html(theTrackWinOrLossObject.lossCntr);
-    $('#blue', '#red', '#green', '#purple').off('click');
-    $("#playAgain").show();
-    return theTrackWinOrLossObject;
+// process the red button click
+function processRedButtonClick(){
+    crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.redNumber);
+    checkForWinOrLoss();
+}
 
+// process the purple button click
+function processPurpleButtonClick(){
+    crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.purpleNumber);
+    checkForWinOrLoss();
 }
 
 // update the total and then update the total in the DOM
@@ -100,6 +84,47 @@ function updateTotalCounter(theTotalNumber, theButtonNumber) {
     return theTotalNumber;
 }
 
+//check for win or loss
+function checkForWinOrLoss() {
+    if (parseInt(crystalObject.totalNumber) > parseInt(crystalObject.crystalNumber)) {
+        crystalObject = processLoss(crystalObject);
+
+    } else if (parseInt(crystalObject.totalNumber) === parseInt(crystalObject.crystalNumber)) {
+        crystalObject = processWin(crystalObject);
+    }
+}
+
+// process a loss
+function processLoss(theCrystalLossObject) {
+    theCrystalLossObject.winLoseMsg = "You Lose!";
+    theCrystalLossObject.lossCntr++;
+    theCrystalLossObject = processWinOrLoss(theCrystalLossObject);
+    return theCrystalLossObject;
+}
+
+// process a win
+function processWin(theCrystalWinObject) {
+    theCrystalWinObject.winLoseMsg = "You Win!";
+    theCrystalWinObject.winCntr++;
+    theCrystalWinObject = processWinOrLoss(theCrystalWinObject);
+    return theCrystalWinObject;
+}
+
+// nested function is called from  processLoss and processWin functions
+function processWinOrLoss(theCrystalWinOrLossObject) {
+    $('#winLoseMsg').html(theCrystalWinOrLossObject.winLoseMsg);
+    $('#winCntr').html(theCrystalWinOrLossObject.winCntr);
+    $('#lossCntr').html(theCrystalWinOrLossObject.lossCntr);
+    $('#blueButton').off('click', );
+    $('#redButton').off('click', );
+    $('#greenButton').off('click', );
+    $('#purpleButton').off('click', );
+    $("#playAgain").show();
+    return theCrystalWinOrLossObject;
+}
+
+
+
 
 
 
@@ -108,74 +133,35 @@ function updateTotalCounter(theTotalNumber, theButtonNumber) {
 //----------------------//
 $(document).ready(function () {
 
-    if (trackGameObject.isFirstTimeThrough) {
+
+    if (crystalObject.isFirstTimeThrough) {
         // initialize numbers and hide the play Again message
         crystalObject = initializeCrystalObject(crystalObject);
-        trackGameObject = beginGame(trackGameObject);
     }
 
 
     // clicking yes or no buttons determines if player wants to play again or not
     $("#yes").click(function () {
+        //re-enable the colored crystal buttons
+        $('#blueButton').on('click', processBlueButtonClick);
+        $('#redButton').on('click', processRedButtonClick);
+        $('#greenButton').on('click', processGreenButtonClick);
+        $('#purpleButton').on('click', processPurpleButtonClick);
         // initialize numbers and hides the playAgain message and buttons
         crystalObject = initializeCrystalObject(crystalObject);
-        trackGameObject = beginGame(trackGameObject);
     });
 
     $("#no").click(function () {
         // display the gameOver page
-    //    move the win and loss counters to the gameOver page
-        localStorage.winCounter  =  trackGameObject.winCntr;
-        localStorage.lossCounter = trackGameObject.lossCntr;
-        
-        $('#lossCntr').text(localStorage.lossCounter);
-        $('#winCntr').text(localStorage.winCounter);
         window.location = 'gameOver.html';
     });
 
-
-    // process a blue button click
-    $('#blue').click(function () {
-        crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.blueNumber);
-        if (parseInt(crystalObject.totalNumber) > parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processLoss(trackGameObject);
-
-        } else if (parseInt(crystalObject.totalNumber) === parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processWin(trackGameObject);
-        }
-    });
-
-    // process a green button click
-    $('#green').click(function () {
-        crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.greenNumber);
-        if (parseInt(crystalObject.totalNumber) > parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processLoss(trackGameObject);
-
-        } else if (parseInt(crystalObject.totalNumber) === parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processWin(trackGameObject);
-        }
-    });
-
-    // process a red button click
-    $('#red').click(function () {
-        crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.redNumber);
-        if (parseInt(crystalObject.totalNumber) > parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processLoss(trackGameObject);
-
-        } else if (parseInt(crystalObject.totalNumber) === parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processWin(trackGameObject);
-        }
-    });
-
-    // process a purple button click
-    $('#purple').click(function () {
-        crystalObject.totalNumber = updateTotalCounter(crystalObject.totalNumber, crystalObject.purpleNumber);
-        if (parseInt(crystalObject.totalNumber) > parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processLoss(trackGameObject);
-
-        } else if (parseInt(crystalObject.totalNumber) === parseInt(crystalObject.crystalNumber)) {
-            trackGameObject = processWin(trackGameObject);
-        }
-    });
+  
+    // process the colored crystal button clicks 
+    $("#blueButton").click(processBlueButtonClick);
+    $("#greenButton").click(processGreenButtonClick);
+    $("#redButton").click(processRedButtonClick);
+    $("#purpleButton").click(processPurpleButtonClick);
+    
 
 });
